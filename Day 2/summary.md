@@ -39,3 +39,10 @@
 - Program - Nested list, tuples and dictionary and print it.
 - Research - list comprehension and dictionary comprehension, extra point if you do the program.
 
+
+# Research
+- List creation in a single line
+- It is actually faster than appending
+
+## Disadvantages
+- You can not have complex statements
