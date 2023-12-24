@@ -8,7 +8,7 @@
 - Mutable in nature
 - Can store diff data types
 - Supports all the array operations
-- + in list performs combining lists
+- '+' in list performs combining lists
 
 ### Syntax - lst = [1,2,8.6]
 
