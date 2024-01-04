@@ -28,6 +28,3 @@ finally:
 - Make changes in the object and class assignment.
 - When user adds an element in the storage, validate the type of object if its of invalid data type and raise TypeError if invalid type of object is passed, hint: isinstance
 - Add a max_size attribute in the storage, when an item is added and if the resultant size exceeds max size raise MemoryError
-Max size = 10
-Current size 7
-New item size 8
