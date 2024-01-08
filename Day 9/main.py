@@ -82,9 +82,8 @@ class Fish:
 
 
 class Shark(Fish):
-    pass
-    # def introduce(self):
-    #     print(f'I am {self.name}. I am a shark')
+    def introduce(self):
+        print(f'I am {self.name}. I am a shark')
 
 
 class TigerShark(Shark):
