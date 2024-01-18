@@ -31,8 +31,14 @@ StopIteration - Raised when a loop exits
 ### GIL (Global Interpreter Lock)
 - A lock on cpu level which disallows multiple interpreter instances.
 
+### thread
+- A simplest form of an operation
+
+### Process
+- A process contains multiple threads, and usually are on application level.
+
 ### generators (covered in next class)
-- Generators are iterables, which are lazy in nature and use coroutines
+- Generators are iterator, which are lazy in nature and use coroutines
 
 ## Assignment
 - Think out - A project to build (2-3) weeks
