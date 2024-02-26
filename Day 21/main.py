@@ -12,6 +12,8 @@ class Game:
         enemy = Enemy()
 
         if enemy.check_collision():
+            pass
             # render crash and exit the game
         else:
+            ...
             # continue the normal processes
