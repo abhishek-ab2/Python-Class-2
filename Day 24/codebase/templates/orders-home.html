@@ -14,7 +14,7 @@
         <li>Order ID: {{order.id}}</li>
         <li>Order Name: {{ order.name }}</li>
         <li>Order Quantity: {{order.quantity}}</li>
-        <li>Created On: {{order.created_on}}</li>
+        <li>Created On: {{ order.created_on|date:'Y-m-d' }}</li>
     </ul>
 {% endfor %}
 

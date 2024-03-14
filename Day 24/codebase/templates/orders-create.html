@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block aslkdfj %}
 <form method="POST" action="." >
     {% csrf_token %}
 <!--    {{form}}-->
@@ -13,13 +8,12 @@
     <label>Name :</label> {{ form.name }}
     {{form.errors.name}}
 
-    <label>Quantity :</label> {{ form.quantity }}
-    {{form.errors.quantity}}
+<!--    <label>Quantity :</label> {{ form.quantity }}-->
+<!--    {{form.errors.quantity}}-->
 
 <!--    <label>Name :</label> <input name="name" type="text" >-->
-<!--    <label>Qty :</label> <input name="quantity" type="number" >-->
+    <label>Qty :</label> <input placeholder="Enter ur qty" name="quantity" type="number" >
     <button type="submit">Submit</button>
 </form>
 List Orders : <a href="/orders/home/">Click here</a>
-</body>
-</html>
+{% endblock %}
