@@ -30,3 +30,9 @@ Order.objects.filter(name='k')
 - iexact - string equals (case insensitive)
 
 - isnull - whether a column value is NULL
+
+select students.*, count(book.*) students inner join books on student.id=book.student_id having book.name='alskdfj';
+
+id, stu_id, name
+
+book.student

@@ -30,3 +30,4 @@ Template Inheritance
 - Create a django project
 - Create a Blog model
 - Requirements -> A simplified version of twitter, (you can post, see all the public blogs, delete ur blogs, update ur blogs and basic registration and login)
+
