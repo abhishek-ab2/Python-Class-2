@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'orders',
     'authentication',
     'django.contrib.admin',
-
 ]
 
 MIDDLEWARE = [
@@ -84,7 +83,7 @@ DATABASES = {
     },
     'psql': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'local',
+        'NAME': 'local2',
         'USER': 'xavier',
         'PASSWORD': 'password',
         'HOST': 'localhost',

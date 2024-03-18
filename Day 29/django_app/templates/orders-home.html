@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders Home</title>
+</head>
+<body>
+
+<h1>This is orders home</h1>
+<h2>These are your orders: </h2>
+
+{% for order in orders %}
+    <ul>
+        <li>Order ID: {{order.id}}</li>
+        <li>Order Name: {{ order.name }}</li>
+        <li>Order Quantity: {{order.quantity}}</li>
+        <li>Created On: {{ order.created_on|date:'Y-m-d' }}</li>
+    </ul>
+{% endfor %}
+
+</body>
+</html>
