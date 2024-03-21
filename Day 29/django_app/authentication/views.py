@@ -1,6 +1,10 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+
 from django.shortcuts import render, redirect
+from django.views import View
+
 from .forms import RegistrationForm, LoginForm
 
 
@@ -36,12 +40,22 @@ def login_request(request):
 
 
 @login_required(login_url='/auth/login')
-def dashboard(request):
+def dashboard(request, id=None):
+    print(id)
     if request.user.is_authenticated:
         return render(request, 'dashboard.html', {
             'user': request.user,
             'first_name': request.user.first_name
         })
+
+
+class DashboardView(View):
+    def get(self, request):
+        return HttpResponse(status=200, content='Good job')
+
+    def post(self, request):
+        pass
+
 
 @login_required
 def logout_request(request):
