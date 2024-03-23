@@ -44,3 +44,23 @@ class LoginForm(forms.Form):
     def save(self):
         data = self.cleaned_data
         return authenticate(**data)
+
+
+class UserUpdateForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput(), required=False, initial="")
+    email = forms.EmailField()
+
+    class Meta:
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        self.instance = kwargs.pop('instance', None)
+        super().__init__(*args, **kwargs)
+
+    def save(self):
+        data = self.cleaned_data
+        self.instance.email = self.cleaned_data['email']
+        if data.get('password'):
+            self.instance.set_password(data['password'])
+        self.instance.save()
+        self.instance.refresh_from_db()

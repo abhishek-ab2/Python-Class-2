@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, LoginForm, UserUpdateForm
 
 
 def register(request):
@@ -62,3 +62,17 @@ def logout_request(request):
     logout(request)
     request.session.clear()
     return redirect('/auth/login')
+
+
+def update_user(request):
+    form = UserUpdateForm(instance=request.user, initial={
+        'email': request.user.email
+    })
+    if request.POST:
+        form = UserUpdateForm(data=request.POST, initial={'email': request.user.email}, instance=request.user)
+        if form.is_valid():
+            form.save()
+    request.session['id'] = 23452345
+
+    return render(request, 'user.html', {'form': form})
+
