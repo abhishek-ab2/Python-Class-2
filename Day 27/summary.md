@@ -16,6 +16,7 @@
 - only() -> Fetches only particulars columns passed
 - using() -> Used to set which db to use for the query
 - raw() -> Used to run sql queries
+- count() -> returns the count of rows
 
 Template tags:
 Tags are special functions which are used to perform some operation in a template.

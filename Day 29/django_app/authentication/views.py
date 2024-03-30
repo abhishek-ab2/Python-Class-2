@@ -1,11 +1,14 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q, F, Count
+from django.db.models.aggregates import Sum, Max
 from django.http import HttpResponse
 
 from django.shortcuts import render, redirect
 from django.views import View
 
 from .forms import RegistrationForm, LoginForm, UserUpdateForm
+from .models import Blog
 
 
 def register(request):
@@ -75,4 +78,31 @@ def update_user(request):
     request.session['id'] = 23452345
 
     return render(request, 'user.html', {'form': form})
+
+
+def blog_list(request):
+    blogs = Blog.objects.all()
+
+    ordered_by_id_and_title_desc = blogs.order_by('-title', 'id')
+
+    # blogs views is gt 30 or likes is less than 30
+    # blogs = blogs.filter(Q(views__gt=30) | Q(likes__lt=30)) # For OR operation on conditions
+
+    # blogs views is gt 50 and (likes is gt 30  or likes is lt 10)
+    # blogs = blogs.filter(Q(views__gt=50) & (Q(likes__gt=30) | Q(likes__lt=10)))
+
+    # blogs views is not gt 50
+    # blogs = blogs.filter(~Q(views__gt=50))
+
+    # blogs views is not gt 50 and (likes is gt 30)
+    # blogs = blogs.filter(~Q(views__gt=50) & Q(likes__gt=30))
+
+    # a new column "interaction" which is sum of likes and views
+    # SQL: select *, add(likes, views) as interaction from blogs;
+    blogs = blogs.annotate(interaction=F('likes') * F('views'))
+
+    return render(request, 'blog-list.html', {
+        'blogs': blogs
+    })
+
 

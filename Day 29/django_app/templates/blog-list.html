@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    Blogs
+</h1>
+{% for blog in blogs %}
+<ul>
+    <li>
+            Blog Index: {{forloop.counter}}
+    </li>
+    <li>
+            Blog Interaction: {{blog.interaction}}
+    </li>
+    <li>
+            Blog ID: {{blog.id}}
+    </li>
+    <li>
+            Blog likes: {{blog.likes}}
+    </li>
+    <li>
+            Blog views: {{blog.views}}
+    </li>
+    <li>
+            Blog is_private: {{blog.is_private}}
+    </li>
+    <li>
+            Blog title: {{blog.title}}
+    </li>
+    <li>
+            Blog content: {{blog.content}}
+    </li>
+</ul>
+{% endfor %}
+</body>
+</html>
