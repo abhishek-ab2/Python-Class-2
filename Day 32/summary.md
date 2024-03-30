@@ -37,8 +37,8 @@ Queryset methods:
 
 # Annotations you can test
 - Blog.objects.annotate(max_user_id=Max('user_id'))
-- Blog.objects.annotate(user_count=Count('user'))
-
+- Blog.objects.annotate(user_count=Count('likes'))
+blog.user_count
 
 # Advanced Queries:
 - Case - For implementing if elif else for an annotation

@@ -99,10 +99,8 @@ def blog_list(request):
 
     # a new column "interaction" which is sum of likes and views
     # SQL: select *, add(likes, views) as interaction from blogs;
-    blogs = blogs.annotate(interaction=F('likes') * F('views'))
+    blogs = blogs.annotate(interaction=F('likes') + F('views'))
 
     return render(request, 'blog-list.html', {
         'blogs': blogs
     })
-
-
